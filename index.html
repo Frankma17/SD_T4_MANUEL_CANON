@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+</head>
+<body>
+    <div class = "container py-2">
+        <p class ="lead">Ingrese un nuevo producto</p>
+        <form>
+        <input id = "nameProduct" class="input is-primary" type="text" placeholder="Primary input">
+        <input id = "priceProduct" class="input is-primary" type="text" placeholder="Primary input">
+        <button id="button_add" class="button is-primary" type="reset" onclick="add_product();">Agregar producto</button>
+    </form>
+    </div>
+    <div class="container">
+
+        <table class ="table" id="table_products">
+            <thead class ="thead-inverse">
+                <tr>
+                    <th>Nombre producto</th>
+                    <th>Precio Producto</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        function add_product(){
+    // console.log("capturado")
+     function Product(nameProduct,priceProduct){
+         this.nameProduct =nameProduct;
+         this.priceProduct = priceProduct;
+     }
+     var nameProductcap = document.getElementById("nameProduct").value;
+     console.log(nameProductcap);
+     var priceProductcap = document.getElementById("priceProduct").value;
+     console.log(priceProductcap);
+
+     newProduct = new Product(nameProductcap,priceProductcap);
+     console.log(newProduct);
+     add_table();
+ }
+
+ var dates = [];
+ function add_table(){
+     console.log("agregado");
+     dates.push(newProduct);
+     console.log(dates);
+     document.getElementById("table_products").innerHTML += '<tbody><td>'+newProduct.nameProduct+'</td><td>'+newProduct.priceProduct+'</td></tbody>';
+ }
+    </script>
+
+</body>
+</html>
